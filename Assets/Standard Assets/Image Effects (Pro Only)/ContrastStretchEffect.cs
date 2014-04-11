@@ -8,6 +8,8 @@ public class ContrastStretchEffect : MonoBehaviour
 	/// Adaptation speed - percents per frame, if playing at 30FPS.
 	/// Default is 0.02 (2% each 1/30s).
 	public float adaptationSpeed = 0.02f;
+
+	public float Setter {get;set;}
 	
 	/// If our scene is really dark (or really bright), we might not want to
 	/// stretch its contrast to the full range.
