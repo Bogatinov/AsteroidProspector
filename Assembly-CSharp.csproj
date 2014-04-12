@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Hello.cs" />
      <Compile Include="Assets\Scripts\TestDvaTri.cs" />
      <Compile Include="Assets\Scripts\TestScript.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
