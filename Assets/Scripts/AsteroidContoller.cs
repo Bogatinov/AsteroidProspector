@@ -3,18 +3,23 @@ using System.Collections;
 
 public class AsteroidContoller : MonoBehaviour
 {
+		private float Speed;
 
-		// Use this for initialization
 		void Start ()
 		{
-				transform.Rotate (Vector3.forward * -90);
 		}
 	
-		// Update is called once per frame
 		void Update ()
 		{
-				//rigidbody2D.AddTorque (5);
 				transform.Rotate (Vector3.forward * -90 * Time.deltaTime);
-				
+				if (transform.localScale.x <= 1) {
+						Speed = 7;
+				} else if (transform.localScale.x <= 2 && transform.localScale.x > 1) {
+						Speed = 4;
+				} else {
+						Speed = 2;
+				}
+
+				transform.position -= Vector3.right * Speed * Time.deltaTime;
 		}
 }
