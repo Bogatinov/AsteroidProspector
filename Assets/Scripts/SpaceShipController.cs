@@ -27,11 +27,16 @@ public class SpaceShipController : MonoBehaviour
 						moveDirection = moveToward - currentPosition;
 						moveDirection.z = 0; 
 						moveDirection.Normalize ();
+
+						Vector3 target = moveDirection * moveSpeed + currentPosition;
+						transform.position = Vector3.Lerp (currentPosition, target, Time.deltaTime);
+
+						float targetAngle = Mathf.Atan2 (moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+						transform.rotation = 
+				Quaternion.Slerp (transform.rotation, 
+				                  Quaternion.Euler (0, 0, targetAngle), 
+				                  turnSpeed * Time.deltaTime);
 				}
-				float targetAngle = Mathf.Atan2 (moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-				transform.rotation = 
-			Quaternion.Slerp (transform.rotation, 
-			                 Quaternion.Euler (0, 0, targetAngle), 
-			                 turnSpeed * Time.deltaTime);
+				
 		}
 }
